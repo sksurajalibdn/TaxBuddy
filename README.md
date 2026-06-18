@@ -1,6 +1,3 @@
-# TaxBuddy
-Fill your ITR with a Swag like a CA 
-
 # TaxBuddy — Indian Income Tax Filing Assistant
 
 **Smart, document-driven tax filing assistant for FY 2025-26 (AY 2026-27)**
@@ -25,7 +22,6 @@ TaxBuddy parses your Form 16, AIS, and Form 26AS, then guides you through ITR-1 
 
 ### Prerequisites
 - **Python 3.9 or higher** — check with `python3 --version`
-- **pip** — comes with Python
 
 ### Step 1: Download & Extract
 Unzip `TaxBuddy.zip` to any folder on your laptop.
@@ -40,14 +36,21 @@ cd path/to/TaxBuddy
 ```
 
 ### Step 4: Install
+
+**Option A — Use the install script (easiest):**
 ```bash
-pip install .
+bash install.sh
+```
+
+**Option B — Install manually:**
+```bash
+python3 -m pip install .
 ```
 This installs TaxBuddy and all dependencies (Streamlit, pdfplumber, openpyxl).
 
-### Step 5: Run
+### Step 5: Launch the Web App
 ```bash
-taxbuddy
+python3 -m taxbuddy
 ```
 This opens TaxBuddy in your default browser at `http://localhost:8501`.
 
@@ -57,11 +60,11 @@ This opens TaxBuddy in your default browser at `http://localhost:8501`.
 
 ## Alternative: Run Without Installing
 
-If `pip install .` gives permission issues:
+If `python3 -m pip install .` gives permission issues:
 
 ```bash
-pip install -r requirements.txt
-python -m streamlit run taxbuddy/app.py
+python3 -m pip install -r requirements.txt
+python3 -m streamlit run taxbuddy/app.py
 ```
 
 ---
@@ -92,17 +95,24 @@ python -m streamlit run taxbuddy/app.py
 
 ## Troubleshooting
 
+**"command not found: pip" or "zsh: command not found: pip"**
+→ Do **not** use bare `pip`. Use `python3 -m pip install .` instead — this always works.
+→ If that also fails: `python3 -m ensurepip --upgrade`
+
 **"command not found: taxbuddy"**
-→ Use `python3 -m taxbuddy` instead, or `python -m streamlit run taxbuddy/app.py`
+→ Use `python3 -m taxbuddy` instead, or `python3 -m streamlit run taxbuddy/app.py`
 
 **"No module named streamlit"**
-→ Run `pip install streamlit pdfplumber openpyxl`
+→ Run `python3 -m pip install streamlit pdfplumber openpyxl`
 
 **Port 8501 already in use**
-→ Run `python -m streamlit run taxbuddy/app.py --server.port=8502`
+→ Run `python3 -m streamlit run taxbuddy/app.py --server.port=8502`
 
 **Python version too old**
 → Install Python 3.9+ from [python.org](https://www.python.org/downloads/)
+
+**"Permission denied" during install**
+→ Add `--user`: `python3 -m pip install . --user`
 
 ---
 
