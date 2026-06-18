@@ -54,6 +54,9 @@ python3 -m taxbuddy
 ```
 This opens TaxBuddy in your default browser at `http://localhost:8501`.
 
+if you get No Module Found for Streamlite then 1st Execute: python3 -m pip install -r requirements.txt
+to Install all teh required module. then rerun the command for Launch the webApp
+
 **That's it!** Upload your documents and follow the guided steps.
 
 ---
